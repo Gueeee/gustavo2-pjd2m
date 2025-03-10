@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
          if (noChao == true)
          {
              andando = true;
+            _animator.SetBool("Andando",andando);
          }
       }
 
@@ -78,6 +79,5 @@ public class Player : MonoBehaviour
             Debug.Log("Jump");
         }
 
-        _animator.SetBool("Andando",andando);
     }
 }
