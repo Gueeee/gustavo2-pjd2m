@@ -44,33 +44,32 @@ public class Player : MonoBehaviour
     void Update()
     {
         andando = false;
-        
-      if(Input.GetKey(KeyCode.LeftArrow))
-      {
-        gameObject.transform.position += new Vector3(-velocidade*Time.deltaTime,0,0);
-        _spriteRenderer.flipX = true;
-        Debug.Log("LeftArrow");
 
-        if (noChao == true)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            andando = true;
-        }
-      }
-        
+            gameObject.transform.position += new Vector3(-velocidade * Time.deltaTime, 0, 0);
+            _spriteRenderer.flipX = true;
+            Debug.Log("LeftArrow");
 
-      if(Input.GetKey(KeyCode.RightArrow))
-      {
-        gameObject.transform.position += new Vector3(velocidade*Time.deltaTime,0,0);
-        //rigidbody2D.AddForce(new Vector2(velocidade,0));
-         _spriteRenderer.flipX = false;
-         Debug.Log("RightArrow");
-         
-         if (noChao == true)
-         {
-             andando = true;
-            _animator.SetBool("Andando",andando);
-         }
-      }
+            if (noChao == true)
+            {
+                andando = true;
+            }
+        }
+
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            gameObject.transform.position += new Vector3(velocidade * Time.deltaTime, 0, 0);
+            //rigidbody2D.AddForce(new Vector2(velocidade,0));
+            _spriteRenderer.flipX = false;
+            Debug.Log("RightArrow");
+
+            if (noChao == true)
+            {
+                andando = true;
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && noChao == true)
         {
@@ -79,5 +78,6 @@ public class Player : MonoBehaviour
             Debug.Log("Jump");
         }
 
+        _animator.SetBool("Andando", andando);
     }
-}
+   }
